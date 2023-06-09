@@ -24,8 +24,6 @@ public class LionParameterizedTest {
         return new Object[][]{
                 {"Самец", true},
                 {"Самка", false},
-                {"Non-binary", false}
-
         };
     }
 
@@ -35,14 +33,11 @@ public class LionParameterizedTest {
     Feline feline = Mockito.mock(Feline.class);
 
     @Test
-    public void checkDoesHaveManeTest() {
-        try {
-            Lion testLion = new Lion(sex, feline);
-            boolean doesHaveMaven = testLion.doesHaveMane();
-            Assert.assertEquals(expectedHaveMane, doesHaveMaven);
+    public void checkDoesHaveManeTest() throws Exception {
 
-        } catch (Exception exception) {
-            System.out.println("Test is passed. Not correct sex is caught: " + sex);
-        }
+        Lion testLion = new Lion(sex, feline);
+        boolean doesHaveMaven = testLion.doesHaveMane();
+        Assert.assertEquals(expectedHaveMane, doesHaveMaven);
+
     }
 }

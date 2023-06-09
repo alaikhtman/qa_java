@@ -1,6 +1,5 @@
 import com.example.Feline;
 import com.example.Lion;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -10,8 +9,16 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
-   @Mock
+    @Mock
     Feline feline;
+
+    @Test(expected = Exception.class)
+    public void checkDoesHaveManeExceptionTest() throws Exception {
+        String sex = "Not-binary";
+        Lion testLion = new Lion(sex, feline);
+        testLion.doesHaveMane();
+
+    }
 
     @Test
     public void checkGetKittensTest() throws Exception {
